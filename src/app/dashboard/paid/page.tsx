@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { Lock } from "lucide-react";
 
 const LARK_FORM_URL =
-  "https://ljpbqpwr5vbk.jp.larksuite.com/share/base/form/shrjp9gksNra45vIjBd3UBlJ23e";
+  "https://ljpbqpwr5vbk.jp.larksuite.com/scheduler/96c06a2209d4e79e";
 
 const paidModules = [
   { id: "paid-guidance", label: "Paid Guidance", title: "有料コース全体像・進め方", videoId: null },

@@ -5,7 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 
 const LARK_FORM_URL =
-  "https://ljpbqpwr5vbk.jp.larksuite.com/share/base/form/shrjp9gksNra45vIjBd3UBlJ23e";
+  "https://ljpbqpwr5vbk.jp.larksuite.com/scheduler/96c06a2209d4e79e";
 
 const freeLessons = [
   { id: "guidance", label: "Free Guidance", title: "講座の進め方・全体像", videoId: null },
