@@ -17,7 +17,11 @@ const paidModules = [
   { id: "module05", label: "Module 05", title: "VS Code × Claude Code連携（希望者・2〜4週間）", videoId: null, optional: true },
 ];
 
-export default async function PaidDashboard() {
+export default async function PaidDashboard({
+  searchParams,
+}: {
+  searchParams: Promise<{ success?: string }>;
+}) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/register");
@@ -29,6 +33,8 @@ export default async function PaidDashboard() {
     .single();
 
   if (!profile?.is_paid_member) redirect("/checkout");
+
+  const { success } = await searchParams;
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -44,6 +50,18 @@ export default async function PaidDashboard() {
       </header>
 
       <div className="max-w-5xl mx-auto px-4 md:px-8 py-10">
+        {success === "1" && (
+          <div className="bg-green-50 border border-green-200 text-green-800 px-6 py-4 mb-8 flex items-center gap-3">
+            <svg className="w-5 h-5 text-green-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <div>
+              <p className="font-black text-sm">決済が完了しました！</p>
+              <p className="text-xs mt-0.5">有料プランへのアクセスが有効になりました。早速学習を始めましょう。</p>
+            </div>
+          </div>
+        )}
+
         <h1 className="text-2xl font-black text-slate-900 mb-2">有料プラン — AI実践講座</h1>
         <p className="text-slate-500 text-sm mb-8">Module 1〜5のフルコンテンツを受講してください。</p>
 
