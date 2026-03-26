@@ -36,40 +36,43 @@ export async function POST(request: NextRequest) {
   }
 
   // 決済完了イベント
-  if (
-    event.type === "checkout.session.completed" ||
-    event.type === "payment_intent.succeeded"
-  ) {
+  if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
+
+    // metadataのuserIdを優先、なければemailで検索
+    const userId = session.metadata?.userId;
     const customerEmail = session.customer_details?.email ?? session.customer_email;
 
-    if (!customerEmail) {
-      return NextResponse.json({ error: "No email" }, { status: 400 });
-    }
+    let targetUserId = userId;
 
-    // SupabaseのユーザーIDをメールで検索してis_paid_memberをtrueに
-    const { data: user, error: userError } = await supabaseAdmin
-      .from("users")
-      .select("id")
-      .eq("email", customerEmail)
-      .single();
+    if (!targetUserId) {
+      if (!customerEmail) {
+        return NextResponse.json({ error: "No user identifier" }, { status: 400 });
+      }
+      const { data: user, error: userError } = await supabaseAdmin
+        .from("users")
+        .select("id")
+        .eq("email", customerEmail)
+        .single();
 
-    if (userError || !user) {
-      console.error("User not found:", customerEmail);
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
+      if (userError || !user) {
+        console.error("User not found:", customerEmail);
+        return NextResponse.json({ error: "User not found" }, { status: 404 });
+      }
+      targetUserId = user.id;
     }
 
     const { error: updateError } = await supabaseAdmin
       .from("users")
       .update({ is_paid_member: true })
-      .eq("id", user.id);
+      .eq("id", targetUserId);
 
     if (updateError) {
       console.error("Update error:", updateError);
       return NextResponse.json({ error: "Update failed" }, { status: 500 });
     }
 
-    console.log(`✓ Paid member activated: ${customerEmail}`);
+    console.log(`✓ Paid member activated: userId=${targetUserId}`);
   }
 
   return NextResponse.json({ received: true });
