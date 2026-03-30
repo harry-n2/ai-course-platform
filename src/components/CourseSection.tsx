@@ -34,6 +34,19 @@ export function CourseSection() {
           </p>
         </div>
 
+        {/* Guidance Video */}
+        <div className="mb-10 md:mb-14 max-w-3xl mx-auto">
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <video
+              className="absolute inset-0 w-full h-full bg-slate-900"
+              src="/free-guidance.mp4"
+              controls
+              playsInline
+              preload="metadata"
+            />
+          </div>
+        </div>
+
         {/* Free Plan */}
         <div className="mb-12 md:mb-16">
           <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
