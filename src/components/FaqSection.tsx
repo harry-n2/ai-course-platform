@@ -38,27 +38,27 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 bg-slate-50">
+    <section id="faq" className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-[#d4af37] text-xs font-bold tracking-[0.3em] uppercase mb-4">FAQ</p>
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900">よくある質問</h2>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900">よくある質問</h2>
         </div>
         <div className="space-y-2">
           {faqs.map((faq, i) => (
             <div key={i} className="bg-white border border-slate-200">
               <button
-                className="w-full flex items-center justify-between px-6 py-5 text-left"
+                className="w-full flex items-center justify-between px-4 md:px-6 py-4 md:py-5 text-left"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
-                <span className="font-bold text-slate-900 pr-4">{faq.q}</span>
+                <span className="font-bold text-slate-900 text-sm md:text-base pr-4">{faq.q}</span>
                 <ChevronDown
                   size={18}
                   className={`text-[#d4af37] shrink-0 transition-transform ${openIndex === i ? "rotate-180" : ""}`}
                 />
               </button>
               {openIndex === i && (
-                <div className="px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                <div className="px-4 md:px-6 pb-4 md:pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
                   {faq.a}
                 </div>
               )}

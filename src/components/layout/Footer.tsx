@@ -5,7 +5,7 @@ const LARK_FORM_URL =
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-400 py-12">
+    <footer className="bg-slate-900 text-slate-400 py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <div>
@@ -16,12 +16,12 @@ export function Footer() {
               AIで、あなたのビジネスを「資産」に変える。
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-8 text-sm">
+          <div className="flex flex-col sm:flex-row gap-6 md:gap-8 text-sm">
             <div className="space-y-2">
               <p className="font-bold text-white text-xs tracking-wider uppercase">サービス</p>
               <Link href="/#course" className="block hover:text-[#d4af37] transition-colors">AI実践講座</Link>
               <Link href="/#kiwami" className="block hover:text-[#d4af37] transition-colors">極サービス</Link>
-              <Link href="/#plans" className="block hover:text-[#d4af37] transition-colors">料金プラン</Link>
+              <Link href="https://wfhsupport.vercel.app" target="_blank" rel="noopener noreferrer" className="block hover:text-[#d4af37] transition-colors">WTN公式サイト</Link>
             </div>
             <div className="space-y-2">
               <p className="font-bold text-white text-xs tracking-wider uppercase">サポート</p>
@@ -30,7 +30,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-10 pt-6 border-t border-slate-700 text-xs text-center">
+        <div className="mt-8 md:mt-10 pt-6 border-t border-slate-700 text-xs text-center">
           © 2025 WTN. All rights reserved.
         </div>
       </div>
