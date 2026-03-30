@@ -28,11 +28,11 @@ export function Header() {
           <Link href="/#kiwami" className="text-slate-600 hover:text-[#d4af37] transition-colors">
             極サービス
           </Link>
-          <Link href="/#plans" className="text-slate-600 hover:text-[#d4af37] transition-colors">
-            料金プラン
-          </Link>
           <Link href="/#faq" className="text-slate-600 hover:text-[#d4af37] transition-colors">
             FAQ
+          </Link>
+          <Link href="https://wfhsupport.vercel.app" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-[#d4af37] transition-colors">
+            WTN公式
           </Link>
         </nav>
 
@@ -73,11 +73,17 @@ export function Header() {
           <Link href="/#kiwami" className="block text-sm font-bold text-slate-700 py-2" onClick={() => setMobileOpen(false)}>
             極サービス
           </Link>
-          <Link href="/#plans" className="block text-sm font-bold text-slate-700 py-2" onClick={() => setMobileOpen(false)}>
-            料金プラン
-          </Link>
           <Link href="/#faq" className="block text-sm font-bold text-slate-700 py-2" onClick={() => setMobileOpen(false)}>
             FAQ
+          </Link>
+          <Link
+            href="https://wfhsupport.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-sm font-bold text-slate-700 py-2"
+            onClick={() => setMobileOpen(false)}
+          >
+            WTN公式
           </Link>
           <div className="pt-4 space-y-3">
             <Link

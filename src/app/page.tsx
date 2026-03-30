@@ -3,7 +3,6 @@ import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/HeroSection";
 import { CourseSection } from "@/components/CourseSection";
 import { KiwamiSection } from "@/components/KiwamiSection";
-import { PlansSection } from "@/components/PlansSection";
 import { FaqSection } from "@/components/FaqSection";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
         <HeroSection />
         <CourseSection />
         <KiwamiSection />
-        <PlansSection />
         <FaqSection />
       </main>
       <Footer />
