@@ -13,7 +13,7 @@ export function HeroSection() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 relative z-10 w-full">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#d4af37] text-xs font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase mb-4 md:mb-6">
             AI WEB CONSTRUCTION & ASSET BUILDING
           </p>
@@ -31,7 +31,7 @@ export function HeroSection() {
           </p>
 
           {/* 2択CTA */}
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <Link
               href="/#course-register"
               className="inline-flex items-center justify-center px-6 md:px-8 py-4 bg-white text-slate-900 font-bold text-sm tracking-wider hover:bg-[#d4af37] hover:text-white transition-colors"
@@ -50,7 +50,7 @@ export function HeroSection() {
         </div>
 
         {/* 2択カード */}
-        <div className="mt-10 md:mt-20 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-3xl">
+        <div className="mt-10 md:mt-20 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto">
           <div className="border border-slate-700 p-5 md:p-6 hover:border-[#d4af37] transition-colors group">
             <p className="text-[#d4af37] text-xs font-bold tracking-widest uppercase mb-3">Option 01</p>
             <h3 className="text-white font-bold text-lg md:text-xl mb-2">自分でAIを学ぶ</h3>
